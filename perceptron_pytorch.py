@@ -18,8 +18,14 @@ if __name__ == '__main__':
     ((data_train, label_train), (data_test, label_test)) = torch.load(gzip.open('mnist.pkl.gz'))
 
     # on initialise le modèle et ses poids
+    # weight
     w = torch.empty((data_train.shape[1], label_train.shape[1]), dtype=torch.float)
+    print(data_train.shape[1])
+    print(w.shape)
+    # bias
     b = torch.empty((1, label_train.shape[1]), dtype=torch.float)
+    print(label_train.shape[1])
+    print(b.shape)
     torch.nn.init.uniform_(w, -0.001, 0.001)
     torch.nn.init.uniform_(b, -0.001, 0.001)
 
